@@ -49,8 +49,8 @@
             </DockPanel>
             <StackPanel Orientation="Horizontal" Width="150" Height="5"  Margin="0, 60, 330, 0" ZIndex="4">
                 
-                <Image Source="../Assets/Images/polygon-right.png" Width="10" Height="13" Margin="10, 0, 0, 0"></Image>
-                <Image Source="../Assets/Images/polygon-left.png" Width="10" Height="13" Margin="110, 0, 0, 0"></Image>
+                <Image Source="../Assets/Images/slider-right.png" Width="10" Height="13" Margin="10, 0, 0, 0"></Image>
+                <Image Source="../Assets/Images/slider-left.png" Width="10" Height="13" Margin="110, 0, 0, 0"></Image>
             </StackPanel>
                     
             <Button Width="140" Height="50" Background="gray" Margin="330, 180, 0, 0" HorizontalAlignment="Center" ZIndex="3" CornerRadius="50">
