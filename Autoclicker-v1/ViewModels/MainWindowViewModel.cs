@@ -1,5 +1,9 @@
-﻿namespace Autoclicker_v1.ViewModels;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-public class MainWindowViewModel : ViewModelBase {
+namespace Autoclicker_v1.ViewModels;
+
+public class MainWindowViewModel : ObservableObject {
     public string Greeting => "Welcome to Avalonia!";
+
 }
+
