@@ -3,6 +3,7 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="Autoclicker-v1/App.axaml" value="Autoclicker-v1/Autoclicker-v1.csproj" />
         <entry key="Autoclicker-v1/Views/MainWindow.axaml" value="Autoclicker-v1/Autoclicker-v1.csproj" />
       </map>
     </option>
