@@ -20,6 +20,8 @@
     <Design.DataContext>
         <viewModels:MainWindowViewModel />
     </Design.DataContext>
+	
+	
     
     <Grid ColumnDefinitions="180, *" Background="black">
         <Grid Grid.Column="0" Width="180" Height="600" Background="#1D252C" ZIndex="1">

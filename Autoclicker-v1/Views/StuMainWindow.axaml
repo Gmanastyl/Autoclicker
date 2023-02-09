@@ -1,0 +1,220 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Autoclicker_v1.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:Autoclicker_v1.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Autoclicker_v1.Views.StuMainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="RangeSliderTest"
+        WindowStartupLocation="CenterScreen"
+        MinWidth="900"
+        MinHeight="600"
+        CanResize="True"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="NoChrome"
+        ExtendClientAreaTitleBarHeightHint="-1">
+
+	<Design.DataContext>
+		<viewModels:MainWindowViewModel />
+	</Design.DataContext>
+
+	<!-- Main Grid -->
+	<Grid ColumnDefinitions="180, *"
+          Background="black">
+
+		<!-- Left Column -->
+		<Grid Grid.Column="0"
+              Background="#1D252C"
+              ZIndex="1">
+
+			<!-- Feather Icon Logo -->
+			<Image Source="../Assets/Images/logo.png"
+                   Width="90" Height="90"
+                   VerticalAlignment="Top"
+                   Margin="0, 10, 0, 0" />
+
+		</Grid>
+
+
+
+		<!-- Right Column -->
+		<Grid Grid.Column="1"
+			  RowDefinitions="auto,*"
+              
+              Background="#1E272E">
+
+			<!-- The Minimum and Close Buttons at the top -->
+			<StackPanel Grid.Row="0" Grid.Column="1"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top">
+
+				<!-- Minimize Button -->
+				<Button x:Name="HideButton"
+                        Width="70" Height="25"
+                        Click="HideButton_Click"
+                        HorizontalAlignment="Right"
+                        Margin="0, 11, 11, 0"
+                        CornerRadius="50">
+
+					<Image Source="../Assets/Images/hide.png"
+						   Width="16" Height="16" />
+
+				</Button>
+
+				<!-- Close Button -->
+				<Button x:Name="CloseButton"
+                        Width="70" Height="25"
+                        Click="CloseButton_Click"
+                        HorizontalAlignment="Right"
+                        Margin="0, 11, 11, 0"
+                        CornerRadius="50">
+
+					<Image Source="../Assets/Images/close.png"
+						   Width="16" Height="16" />
+
+				</Button>
+
+			</StackPanel>
+
+			<!-- Left and Right Click Columns -->
+			<Grid Grid.Row="1" ColumnDefinitions="*,*,*,*">
+
+				<!-- Left Click Column -->
+				<Grid Grid.Column="1"
+					  VerticalAlignment="Center"
+					  HorizontalAlignment="Center"
+					  RowDefinitions="Auto,*,Auto">
+
+					<TextBlock Grid.Row="0"
+							   Foreground="white"
+							   HorizontalAlignment="Center"
+							   Margin ="0"
+							   FontFamily="Montserrat"
+							   FontWeight="700"
+							   FontSize="16"
+							   Text="Left Click" />
+
+					<Canvas Grid.Row="1"
+						  Name="leftSlider"
+						  Margin="0,20"
+							Width="150">
+
+						<Border Grid.Row="1" Width="150"
+							    Height="5"
+								Background="#295CED" />
+
+						<Image Grid.Row="1"
+							   Source="../Assets/Images/slider-right.png"
+							   PointerPressed="LeftSliderImage_MouseLeftButtonDown"
+							   PointerReleased="LeftSliderImage_MouseLeftButtonUp"
+							   ZIndex="1"
+							   Width="10"
+							   Margin="0,-4,0,0" />
+
+						<Image Grid.Row="1"
+							   Source="../Assets/Images/slider-left.png"
+							   PointerPressed="LeftSliderImage_MouseLeftButtonDown"
+							   PointerReleased="LeftSliderImage_MouseLeftButtonUp"
+							   ZIndex="1"
+							   Width="10"
+							   Margin="145,-4,0,0" /> 
+
+					</Canvas>
+
+
+					<!-- Hotkey Button -->
+					<Button Grid.Row="2" Width="140" Height="50"
+							Background="#1D252C"
+								
+							HorizontalAlignment="Center"
+								
+							CornerRadius="50">
+
+						<TextBlock Foreground="white"
+								   TextAlignment="Center"
+								   Margin="0, 10, 0, 0"
+								   FontFamily="Montserrat"
+								   FontWeight="700"
+								   FontSize="14"
+								   Text="Hotkey" />
+
+					</Button>
+
+
+				</Grid>
+				
+				<!-- Right Click Column -->
+				<Grid Grid.Column="2"
+					  VerticalAlignment="Center"
+					  HorizontalAlignment="Center"
+					  RowDefinitions="Auto,*,Auto">
+
+					<TextBlock Grid.Row="0"
+							   Foreground="white"
+							   HorizontalAlignment="Center"
+							   Margin ="0"
+							   FontFamily="Montserrat"
+							   FontWeight="700"
+							   FontSize="16"
+							   Text="Right Click" />
+
+					<Canvas Grid.Row="1"
+						    Name="rightSlider"
+						    Margin="0,20"
+							Width="150">
+
+						<Border Grid.Row="1" Width="150"
+							    Height="5"
+								Background="#295CED" />
+
+						<Image Grid.Row="1"
+							   Source="../Assets/Images/slider-right.png"
+							   PointerPressed="RightSliderImage_MouseLeftButtonDown"
+							   PointerReleased="RightSliderImage_MouseLeftButtonUp"
+							   ZIndex="1"
+							   Width="10"
+							   Margin="0,-4,0,0" />
+
+						<Image Grid.Row="1"
+							   Source="../Assets/Images/slider-left.png"
+							   PointerPressed="RightSliderImage_MouseLeftButtonDown"
+							   PointerReleased="RightSliderImage_MouseLeftButtonUp"
+							   ZIndex="1"
+							   Width="10"
+							   Margin="145,-4,0,0" /> 
+
+					</Canvas>
+
+
+					<!-- Hotkey Button -->
+					<Button Grid.Row="2" Width="140" Height="50"
+							Background="#1D252C"
+								
+							HorizontalAlignment="Center"
+								
+							CornerRadius="50">
+
+						<TextBlock Foreground="white"
+								   TextAlignment="Center"
+								   Margin="0, 10, 0, 0"
+								   FontFamily="Montserrat"
+								   FontWeight="700"
+								   FontSize="14"
+								   Text="Hotkey" />
+
+					</Button>
+
+
+				</Grid>
+
+
+			</Grid>
+		</Grid>
+	</Grid>
+
+</Window>
+
+
