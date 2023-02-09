@@ -5,32 +5,46 @@ using Avalonia.Interactivity;
 
 namespace Autoclicker_v1.Views;
 
-public partial class StuMainWindow : Window 
+public partial class StuMainWindow : Window
 {
+    // Flag indicating if when the mouse button was pressed, it was on an image
     private bool imagePressed;
+
+    // The position on the canvas where the mouse button was clicked
     private Point clickPosition;
+
+    // The image that was clicked on
     private Image? selectedImage;
 
-    public StuMainWindow() 
+    // Flag indicating if the arrows on the slider should be able to cross each other
+    private bool arrowsShouldCross = false;
+
+
+    // 
+    private double leftClickRightArrowLeftMarginMin = 0;
+    private double leftClickRightArrowMarginLeftMax = 145; 
+
+    private double rightClickLeftArrowLeftMarginMin = 0;
+    private double rightClickRightArrowMarginLeftMax = 145;
+
+
+    public StuMainWindow()
     {
         InitializeComponent();
+
     }
 
     private void LeftSliderImage_MouseLeftButtonDown(object sender, PointerPressedEventArgs e)
     {
         if (sender is Image)
         {
-
-        
-
-        imagePressed = true;
-
-            clickPosition = e.GetPosition(leftSlider);
-
-            leftSlider.PointerMoved += LeftSliderImage_Moved;
-
             selectedImage = sender as Image;
 
+            imagePressed = true;
+
+            clickPosition = e.GetPosition(leftClickSlider);
+
+            leftClickSlider.PointerMoved += LeftSliderImage_Moved;
 
             
 
@@ -40,17 +54,15 @@ public partial class StuMainWindow : Window
     private void LeftSliderImage_Moved(object sender, PointerEventArgs e)
     {
 
-
-
         if (imagePressed)
         {
-            var xpos = e.GetPosition(leftSlider).X;
+            var xpos = e.GetPosition(leftClickSlider).X;
             var srml = selectedImage.Margin.Left;
 
             var initialPointerPositionLocationInRectangleOffset =
-                e.GetPosition(leftSlider).X - selectedImage.Margin.Left;
+                e.GetPosition(leftClickSlider).X - selectedImage.Margin.Left;
 
-            Point mousePosition = e.GetPosition(leftSlider);
+            Point mousePosition = e.GetPosition(leftClickSlider);
 
             var m = mousePosition.X;
 
@@ -58,9 +70,9 @@ public partial class StuMainWindow : Window
 
             var left = clickPosition.X + distance;
 
-            var x = (double)leftSlider.Width;
+            var x = (double)leftClickSlider.Width;
 
-            if (left > leftSlider.Width - selectedImage.Width) left = leftSlider.Width - selectedImage.Width;
+            if (left > leftClickSlider.Width - selectedImage.Width) left = leftClickSlider.Width - selectedImage.Width;
 
             if (left < 0) left = 0;
 
@@ -85,18 +97,13 @@ public partial class StuMainWindow : Window
         if (sender is Image)
         {
 
-
-
             imagePressed = true;
 
-            clickPosition = e.GetPosition(leftSlider);
+            clickPosition = e.GetPosition(leftClickSlider);
 
-            rightSlider.PointerMoved += RightSliderImage_Moved;
+            rightClickSlider.PointerMoved += RightSliderImage_Moved;
 
             selectedImage = sender as Image;
-
-
-
 
         }
     }
@@ -104,17 +111,15 @@ public partial class StuMainWindow : Window
     private void RightSliderImage_Moved(object sender, PointerEventArgs e)
     {
 
-
-
         if (imagePressed)
         {
-            var xpos = e.GetPosition(leftSlider).X;
+            var xpos = e.GetPosition(leftClickSlider).X;
             var srml = selectedImage.Margin.Left;
 
             var initialPointerPositionLocationInRectangleOffset =
-                e.GetPosition(leftSlider).X - selectedImage.Margin.Left;
+                e.GetPosition(leftClickSlider).X - selectedImage.Margin.Left;
 
-            Point mousePosition = e.GetPosition(rightSlider);
+            Point mousePosition = e.GetPosition(rightClickSlider);
 
             var m = mousePosition.X;
 
@@ -122,9 +127,9 @@ public partial class StuMainWindow : Window
 
             var left = clickPosition.X + distance;
 
-            var x = (double)rightSlider.Width;
+            var x = (double)rightClickSlider.Width;
 
-            if (left > rightSlider.Width - selectedImage.Width) left = rightSlider.Width - selectedImage.Width;
+            if (left > rightClickSlider.Width - selectedImage.Width) left = rightClickSlider.Width - selectedImage.Width;
 
             if (left < 0) left = 0;
 
@@ -145,15 +150,18 @@ public partial class StuMainWindow : Window
     }
 
 
-    private void HideButton_Click(object sender, RoutedEventArgs e) {
+    private void HideButton_Click(object sender, RoutedEventArgs e)
+    {
         this.WindowState = WindowState.Minimized;
     }
 
-    private void CloseButton_Click(object sender, RoutedEventArgs e) {
+    private void CloseButton_Click(object sender, RoutedEventArgs e)
+    {
         this.Close();
     }
 
-    private void MaximizeButton_Click(object sender, RoutedEventArgs e) {
+    private void MaximizeButton_Click(object sender, RoutedEventArgs e)
+    {
         if (this.WindowState == WindowState.Maximized)
         {
             this.WindowState = WindowState.Normal;
@@ -165,7 +173,8 @@ public partial class StuMainWindow : Window
     }
 
 
-    private void Window_PointerPressed(object sender, PointerPressedEventArgs e) {
+    private void Window_PointerPressed(object sender, PointerPressedEventArgs e)
+    {
         if (e.GetCurrentPoint(this).Properties.IsLeftButtonPressed)
         {
             this.BeginMoveDrag(e);

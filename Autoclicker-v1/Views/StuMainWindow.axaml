@@ -98,7 +98,7 @@
 							   Text="Left Click" />
 
 					<Canvas Grid.Row="1"
-						  Name="leftSlider"
+						  Name="leftClickSlider"
 						  Margin="0,20"
 							Width="150">
 
@@ -107,6 +107,7 @@
 								Background="#295CED" />
 
 						<Image Grid.Row="1"
+							   Name="leftClickLeftArrow"
 							   Source="../Assets/Images/slider-right.png"
 							   PointerPressed="LeftSliderImage_MouseLeftButtonDown"
 							   PointerReleased="LeftSliderImage_MouseLeftButtonUp"
@@ -115,12 +116,13 @@
 							   Margin="0,-4,0,0" />
 
 						<Image Grid.Row="1"
+							   Name="leftClickRightArrow"
 							   Source="../Assets/Images/slider-left.png"
 							   PointerPressed="LeftSliderImage_MouseLeftButtonDown"
 							   PointerReleased="LeftSliderImage_MouseLeftButtonUp"
 							   ZIndex="1"
 							   Width="10"
-							   Margin="145,-4,0,0" /> 
+							   Margin="145,-4,0,0" />
 
 					</Canvas>
 
@@ -145,7 +147,7 @@
 
 
 				</Grid>
-				
+
 				<!-- Right Click Column -->
 				<Grid Grid.Column="2"
 					  VerticalAlignment="Center"
@@ -162,7 +164,7 @@
 							   Text="Right Click" />
 
 					<Canvas Grid.Row="1"
-						    Name="rightSlider"
+						    Name="rightClickSlider"
 						    Margin="0,20"
 							Width="150">
 
@@ -171,6 +173,7 @@
 								Background="#295CED" />
 
 						<Image Grid.Row="1"
+							   Name="rightClickLeftArrow"
 							   Source="../Assets/Images/slider-right.png"
 							   PointerPressed="RightSliderImage_MouseLeftButtonDown"
 							   PointerReleased="RightSliderImage_MouseLeftButtonUp"
@@ -179,12 +182,13 @@
 							   Margin="0,-4,0,0" />
 
 						<Image Grid.Row="1"
+							   Name="rightClickRightArrow"
 							   Source="../Assets/Images/slider-left.png"
 							   PointerPressed="RightSliderImage_MouseLeftButtonDown"
 							   PointerReleased="RightSliderImage_MouseLeftButtonUp"
 							   ZIndex="1"
 							   Width="10"
-							   Margin="145,-4,0,0" /> 
+							   Margin="145,-4,0,0" />
 
 					</Canvas>
 
@@ -192,9 +196,7 @@
 					<!-- Hotkey Button -->
 					<Button Grid.Row="2" Width="140" Height="50"
 							Background="#1D252C"
-								
 							HorizontalAlignment="Center"
-								
 							CornerRadius="50">
 
 						<TextBlock Foreground="white"
@@ -204,17 +206,11 @@
 								   FontWeight="700"
 								   FontSize="14"
 								   Text="Hotkey" />
-
 					</Button>
-
-
 				</Grid>
-
-
 			</Grid>
 		</Grid>
 	</Grid>
-
 </Window>
 
 
