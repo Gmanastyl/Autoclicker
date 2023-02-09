@@ -10,7 +10,6 @@ public partial class StuMainWindow : Window
     private bool imagePressed;
     private Point clickPosition;
     private Image? selectedImage;
-    private Thickness selectedImageMargin;
 
     public StuMainWindow() 
     {
@@ -32,7 +31,6 @@ public partial class StuMainWindow : Window
 
             selectedImage = sender as Image;
 
-            selectedImageMargin = selectedImage.Margin;
 
             
 
@@ -97,7 +95,6 @@ public partial class StuMainWindow : Window
 
             selectedImage = sender as Image;
 
-            selectedImageMargin = selectedImage.Margin;
 
 
 
