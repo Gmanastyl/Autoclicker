@@ -9,13 +9,10 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="RangeSliderTest"
         WindowStartupLocation="CenterScreen"
-
 		Width="900"
 		Height="600"
         CanResize="False"
-        ExtendClientAreaToDecorationsHint="True"
-        ExtendClientAreaChromeHints="NoChrome"
-        ExtendClientAreaTitleBarHeightHint="-1">
+        >
 
 	<Design.DataContext>
 		<viewModels:MainWindowViewModel />

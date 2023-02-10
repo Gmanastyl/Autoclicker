@@ -105,9 +105,6 @@ public partial class StuMainWindow : Window
         // If we have already clicked on an image...
         if (imagePressed)
         {
-            // Get the position of the pointer after it has moved
-            var xpos = e.GetPosition(leftClickSlider).X;
-
             // Get the pointer position 
             Point mousePosition = e.GetPosition(leftClickSlider);
 
@@ -175,41 +172,44 @@ public partial class StuMainWindow : Window
         imagePressed = false;
     }
 
-
+    /// <summary>
+    /// Called when the pointer moves
+    /// This is called multiple times during a slide
+    /// </summary>
+    /// <param name="sender">Not used</param>
+    /// <param name="e">The pointer args</param>
     private void RightClick_SliderImage_PointerMoved(object sender, PointerEventArgs e)
     {
 
+        // If we have already clicked on an image...
         if (imagePressed)
         {
-            var xpos = e.GetPosition(leftClickSlider).X;
-            var srml = selectedImage.Margin.Left;
-
-            var initialPointerPositionLocationInRectangleOffset =
-                e.GetPosition(leftClickSlider).X - selectedImage.Margin.Left;
-
+            // Get the pointer position 
             Point mousePosition = e.GetPosition(rightClickSlider);
 
-            var m = mousePosition.X;
-
+            // Calculate the distance the pointer has moved from the original pointer position
             var distance = mousePosition.X - pointerPressedPosition.X;
 
-            var left = pointerPressedPosition.X + distance;
+            // Calculate the new left margin for the image
+            var newLeftMarginValue = pointerPressedPosition.X + distance;
 
-            var x = (double)rightClickSlider.Width;
+            // If the new left margin is greater than the left margin maximum minus
+            // the width of the image, then set the new left margin to the max left margin
+            if (newLeftMarginValue > rightClickArrowLeftMarginMax - selectedImage.Width)
+                newLeftMarginValue = rightClickSlider.Width - selectedImage.Width;
 
-            if (left > rightClickSlider.Width - selectedImage.Width) left = rightClickSlider.Width - selectedImage.Width;
+            // If the new left margin is less than the minimum left margin then set the
+            // new left margin to the minimum left margin
+            if (newLeftMarginValue < rightClickArrowLeftMarginMin) newLeftMarginValue = rightClickArrowLeftMarginMin;
 
-            if (left < 0) left = 0;
-
-            var leftOffset = left;
-
+            // Update the left margin of the image with the new left margin value
             selectedImage.Margin = new Thickness(
-                left,
+                newLeftMarginValue,
                 selectedImage.Margin.Top,
                 selectedImage.Margin.Right,
                 selectedImage.Margin.Bottom);
-        }
 
+        }
     }
 
     #endregion EndRegion - Private Methods
