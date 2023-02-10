@@ -9,9 +9,10 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="RangeSliderTest"
         WindowStartupLocation="CenterScreen"
-        MinWidth="900"
-        MinHeight="600"
-        CanResize="True"
+
+		Width="900"
+		Height="600"
+        CanResize="False"
         ExtendClientAreaToDecorationsHint="True"
         ExtendClientAreaChromeHints="NoChrome"
         ExtendClientAreaTitleBarHeightHint="-1">
@@ -22,6 +23,7 @@
 
 	<!-- Main Grid -->
 	<Grid ColumnDefinitions="180, *"
+		  Width="900" Height="600"
           Background="black">
 
 		<!-- Left Column -->
@@ -80,7 +82,7 @@
 			</StackPanel>
 
 			<!-- Left and Right Click Columns -->
-			<Grid Grid.Row="1" ColumnDefinitions="*,*,*,*">
+			<Grid Grid.Row="1" ColumnDefinitions="*,2*,2*,*">
 
 				<!-- Left Click Column -->
 				<Grid Grid.Column="1"
@@ -109,8 +111,8 @@
 						<Image Grid.Row="1"
 							   Name="leftClickLeftArrow"
 							   Source="../Assets/Images/slider-right.png"
-							   PointerPressed="LeftSliderImage_MouseLeftButtonDown"
-							   PointerReleased="LeftSliderImage_MouseLeftButtonUp"
+							   PointerPressed="LeftClick_SliderImage_PointerPressed"
+							   PointerReleased="LeftClick_SliderImage_PointerReleased"
 							   ZIndex="1"
 							   Width="10"
 							   Margin="0,-4,0,0" />
@@ -118,8 +120,8 @@
 						<Image Grid.Row="1"
 							   Name="leftClickRightArrow"
 							   Source="../Assets/Images/slider-left.png"
-							   PointerPressed="LeftSliderImage_MouseLeftButtonDown"
-							   PointerReleased="LeftSliderImage_MouseLeftButtonUp"
+							   PointerPressed="LeftClick_SliderImage_PointerPressed"
+							   PointerReleased="LeftClick_SliderImage_PointerReleased"
 							   ZIndex="1"
 							   Width="10"
 							   Margin="145,-4,0,0" />
@@ -175,8 +177,8 @@
 						<Image Grid.Row="1"
 							   Name="rightClickLeftArrow"
 							   Source="../Assets/Images/slider-right.png"
-							   PointerPressed="RightSliderImage_MouseLeftButtonDown"
-							   PointerReleased="RightSliderImage_MouseLeftButtonUp"
+							   PointerPressed="RightClick_SliderImage_PointerPressed"
+							   PointerReleased="RightClick_SliderImage_PointerReleased"
 							   ZIndex="1"
 							   Width="10"
 							   Margin="0,-4,0,0" />
@@ -184,8 +186,8 @@
 						<Image Grid.Row="1"
 							   Name="rightClickRightArrow"
 							   Source="../Assets/Images/slider-left.png"
-							   PointerPressed="RightSliderImage_MouseLeftButtonDown"
-							   PointerReleased="RightSliderImage_MouseLeftButtonUp"
+							   PointerPressed="RightClick_SliderImage_PointerPressed"
+							   PointerReleased="RightClick_SliderImage_PointerReleased"
 							   ZIndex="1"
 							   Width="10"
 							   Margin="145,-4,0,0" />
