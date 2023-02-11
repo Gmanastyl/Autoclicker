@@ -14,7 +14,7 @@
 		Height="600"
         CanResize="False"
 		>
-        
+
 	<!--ExtendClientAreaToDecorationsHint="True"
         ExtendClientAreaChromeHints="NoChrome"
         ExtendClientAreaTitleBarHeightHint="-1"-->
@@ -90,7 +90,7 @@
 				<Grid Grid.Column="1"
 					  VerticalAlignment="Center"
 					  HorizontalAlignment="Center"
-					  RowDefinitions="Auto,*,Auto">
+					  RowDefinitions="Auto,Auto,*,Auto">
 
 					<TextBlock Grid.Row="0"
 							   Foreground="white"
@@ -101,16 +101,29 @@
 							   FontSize="16"
 							   Text="Left Click" />
 
-					<Canvas Grid.Row="1"
+					<Grid Grid.Row="1" ColumnDefinitions="Auto,*">
+						
+						<TextBlock Grid.Column="0"
+							Text="{Binding #leftClickLeftArrow.Margin.Left}"
+								   Foreground="White"/>
+						
+						<TextBlock Grid.Column="1"
+							Text="{Binding #leftClickRightArrow.Margin.Left}"
+								   Foreground="White"
+								   HorizontalAlignment="Right"/>
+						
+					</Grid>
+
+					<Canvas Grid.Row="2"
 						  Name="leftClickSlider"
 						  Margin="0,20"
 							Width="150">
 
-						<Border Grid.Row="1" Width="150"
+						<Border Grid.Row="2" Width="150"
 							    Height="5"
 								Background="#295CED" />
 
-						<Image Grid.Row="1"
+						<Image Grid.Row="2"
 							   Name="leftClickLeftArrow"
 							   Source="../Assets/Images/slider-right.png"
 							   PointerPressed="LeftClick_SliderImage_PointerPressed"
@@ -119,7 +132,7 @@
 							   Width="10"
 							   Margin="0,-4,0,0" />
 
-						<Image Grid.Row="1"
+						<Image Grid.Row="2"
 							   Name="leftClickRightArrow"
 							   Source="../Assets/Images/slider-left.png"
 							   PointerPressed="LeftClick_SliderImage_PointerPressed"
@@ -132,7 +145,7 @@
 
 
 					<!-- Hotkey Button -->
-					<Button Grid.Row="2" Width="140" Height="50"
+					<Button Grid.Row="3" Width="140" Height="50"
 							Background="#1D252C"
 								
 							HorizontalAlignment="Center"
@@ -156,7 +169,7 @@
 				<Grid Grid.Column="2"
 					  VerticalAlignment="Center"
 					  HorizontalAlignment="Center"
-					  RowDefinitions="Auto,*,Auto">
+					  RowDefinitions="Auto,Auto,*,Auto">
 
 					<TextBlock Grid.Row="0"
 							   Foreground="white"
@@ -167,16 +180,29 @@
 							   FontSize="16"
 							   Text="Right Click" />
 
-					<Canvas Grid.Row="1"
+					<Grid Grid.Row="1" ColumnDefinitions="Auto,*">
+						
+						<TextBlock Grid.Column="0"
+							Text="{Binding #rightClickLeftArrow.Margin.Left}"
+								   Foreground="White"/>
+						
+						<TextBlock Grid.Column="1"
+							Text="{Binding #rightClickRightArrow.Margin.Left}"
+								   Foreground="White"
+								   HorizontalAlignment="Right"/>
+						
+					</Grid>
+
+					<Canvas Grid.Row="2"
 						    Name="rightClickSlider"
 						    Margin="0,20"
 							Width="150">
 
-						<Border Grid.Row="1" Width="150"
+						<Border Grid.Row="2" Width="150"
 							    Height="5"
 								Background="#295CED" />
 
-						<Image Grid.Row="1"
+						<Image Grid.Row="2"
 							   Name="rightClickLeftArrow"
 							   Source="../Assets/Images/slider-right.png"
 							   PointerPressed="RightClick_SliderImage_PointerPressed"
@@ -185,7 +211,7 @@
 							   Width="10"
 							   Margin="0,-4,0,0" />
 
-						<Image Grid.Row="1"
+						<Image Grid.Row="2"
 							   Name="rightClickRightArrow"
 							   Source="../Assets/Images/slider-left.png"
 							   PointerPressed="RightClick_SliderImage_PointerPressed"
@@ -198,7 +224,7 @@
 
 
 					<!-- Hotkey Button -->
-					<Button Grid.Row="2" Width="140" Height="50"
+					<Button Grid.Row="3" Width="140" Height="50"
 							Background="#1D252C"
 							HorizontalAlignment="Center"
 							CornerRadius="50">

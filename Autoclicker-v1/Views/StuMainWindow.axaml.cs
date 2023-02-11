@@ -7,6 +7,7 @@ using Avalonia.Media;
 using Avalonia.Styling;
 using Avalonia.Themes.Default;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
 
 namespace Autoclicker_v1.Views;
 
@@ -43,6 +44,10 @@ public partial class StuMainWindow : Window
     // The left margin value when the image was pressed on
     private double selectedImageOriginalLeftMargin;
 
+    public double RightArrowValue { get; set; } = 0;
+
+    public double LeftArrowValue { get; set; } = 150;
+
 
     #endregion EndRegion - Private Members
 
@@ -55,6 +60,8 @@ public partial class StuMainWindow : Window
     public StuMainWindow()
     {
         InitializeComponent();
+
+        DataContext= this;
 
     }
 
@@ -147,6 +154,12 @@ public partial class StuMainWindow : Window
                 if (newSelectedImageMarginValue + selectedImage.Width > converseImage.Margin.Left)
                     newConverseImageMarginValue = newSelectedImageMarginValue + selectedImage.Width;
 
+                newSelectedImageMarginValue = Math.Round(newSelectedImageMarginValue, 1);
+
+                newConverseImageMarginValue = Math.Round(newConverseImageMarginValue,1);
+
+
+
                 converseImage.Margin = new Thickness(
                        newConverseImageMarginValue,
                        selectedImage.Margin.Top,
@@ -183,6 +196,10 @@ public partial class StuMainWindow : Window
                 if (newSelectedImageMarginValue < newConverseImageMarginValue + converseImage.Width)
                     newConverseImageMarginValue = newSelectedImageMarginValue - converseImage.Width;
 
+                newSelectedImageMarginValue = Math.Round(newSelectedImageMarginValue, 1);
+
+                newConverseImageMarginValue = Math.Round(newConverseImageMarginValue, 1);
+
                 converseImage.Margin = new Thickness(
                        newConverseImageMarginValue,
                        selectedImage.Margin.Top,
@@ -196,6 +213,12 @@ public partial class StuMainWindow : Window
                        selectedImage.Margin.Right,
                        selectedImage.Margin.Bottom);
             }
+            LeftArrowValue = newSelectedImageMarginValue;
+
+            RightArrowValue = newSelectedImageMarginValue;
+
+
+           
 
         }
 
@@ -290,6 +313,10 @@ public partial class StuMainWindow : Window
                 if (newSelectedImageMarginValue + selectedImage.Width > converseImage.Margin.Left)
                     newConverseImageMarginValue = newSelectedImageMarginValue + selectedImage.Width;
 
+                newSelectedImageMarginValue = Math.Round(newSelectedImageMarginValue, 1);
+
+                newConverseImageMarginValue = Math.Round(newConverseImageMarginValue, 1);
+
                 converseImage.Margin = new Thickness(
                        newConverseImageMarginValue,
                        selectedImage.Margin.Top,
@@ -325,6 +352,10 @@ public partial class StuMainWindow : Window
                 // If the the right arrow margin is less than the left image margin
                 if (newSelectedImageMarginValue < newConverseImageMarginValue + converseImage.Width)
                     newConverseImageMarginValue = newSelectedImageMarginValue - converseImage.Width;
+
+                newSelectedImageMarginValue = Math.Round(newSelectedImageMarginValue, 1);
+
+                newConverseImageMarginValue = Math.Round(newConverseImageMarginValue, 1);
 
                 converseImage.Margin = new Thickness(
                        newConverseImageMarginValue,
