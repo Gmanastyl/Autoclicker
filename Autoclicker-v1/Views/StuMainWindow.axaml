@@ -101,7 +101,7 @@
 							   FontSize="16"
 							   Text="Left Click" />
 
-					<Grid Grid.Row="1" ColumnDefinitions="Auto,*">
+					<Grid Grid.Row="1" ColumnDefinitions="Auto,*" Margin="0,30,0,-12">
 						
 						<TextBlock Grid.Column="0"
 							Text="{Binding #leftClickLeftArrow.Margin.Left}"
@@ -147,7 +147,7 @@
 					<!-- Hotkey Button -->
 					<Button Grid.Row="3" Width="140" Height="50"
 							Background="#1D252C"
-								
+							Margin="0,15,0,0"
 							HorizontalAlignment="Center"
 								
 							CornerRadius="50">
@@ -180,7 +180,7 @@
 							   FontSize="16"
 							   Text="Right Click" />
 
-					<Grid Grid.Row="1" ColumnDefinitions="Auto,*">
+					<Grid Grid.Row="1" ColumnDefinitions="Auto,*" Margin="0,30,0,-12">
 						
 						<TextBlock Grid.Column="0"
 							Text="{Binding #rightClickLeftArrow.Margin.Left}"
@@ -227,7 +227,8 @@
 					<Button Grid.Row="3" Width="140" Height="50"
 							Background="#1D252C"
 							HorizontalAlignment="Center"
-							CornerRadius="50">
+							CornerRadius="50"
+							Margin="0,15,0,0">
 
 						<TextBlock Foreground="white"
 								   TextAlignment="Center"
